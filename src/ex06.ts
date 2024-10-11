@@ -2,10 +2,22 @@
 // - If it's an array of numbers, return the sum. If it's an array of strings, return them concatenated.
 // - Implement function overloading with appropriate return types: `number` for numbers, `string` for strings.
 
-function addValues(values) {
-  
+function addValues<T extends number | string>(values: T[]) {
+  if (typeof values[0] === "number") {
+    let sum = 0
+    values.forEach(value => {
+      sum += value as number
+    })
+    return sum
+  } else {
+    let concat = ""
+    values.forEach(value => {
+      concat += value as string
+    })
+    return concat
+  }
 }
 
 // Expected output:
-addValues([1, 2, 3]) // 6
-addValues(["Hello", " ", "World"]) // "Hello World"
+console.log(addValues([1, 2, 3])) // 6
+console.log(addValues(["Hello", " ", "World"])) // "Hello World"

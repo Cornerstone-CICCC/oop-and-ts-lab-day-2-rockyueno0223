@@ -8,14 +8,26 @@ interface User {
   active: boolean;
 }
 
-function generateSummary(users) {
-
+function generateSummary(users: User[]) {
+  let outputObj = {
+    activeCount: 0,
+    averageAge: 0
+  }
+  let totalAge = 0
+  users.forEach(user => {
+    if (user.active) {
+      outputObj.activeCount++
+      totalAge += user.age
+    }
+  })
+  outputObj.averageAge = totalAge / outputObj.activeCount
+  return outputObj
 }
 
 // Expected output:
-generateSummary([
+console.log(generateSummary([
   { name: "Alice", age: 30, active: true },
   { name: "Bob", age: 25, active: false },
   { name: "Charlie", age: 35, active: true }
-])
+]))
 // { activeCount: 2, averageAge: 32.5 }

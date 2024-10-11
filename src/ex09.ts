@@ -3,13 +3,16 @@
 // - Return type: a new tuple with the student added.
 
 type Course = [
-  
+  name: string,
+  instructor: string,
+  student?: string
 ];
 
-function addStudent(course, student) {
-  
+function addStudent(course: Course, student: string) {
+  course.push(student);
+  return course;
 }
 
 // Expected output:
-addStudent(["Math", "Dr. Smith"], "John") // ["Math", "Dr. Smith", "John"]
-addStudent(["History", "Ms. Brown", "Jane"], "Emma") // ["History", "Ms. Brown", "Jane", "Emma"]
+console.log(addStudent(["Math", "Dr. Smith"], "John")) // ["Math", "Dr. Smith", "John"]
+console.log(addStudent(["History", "Ms. Brown", "Jane"], "Emma")) // ["History", "Ms. Brown", "Jane", "Emma"]

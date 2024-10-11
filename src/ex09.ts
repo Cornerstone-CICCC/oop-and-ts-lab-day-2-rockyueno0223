@@ -8,7 +8,7 @@ type Course = [
   student?: string
 ];
 
-function addStudent(course: Course, student: string) {
+function addStudent(course: Course, student: string): Course {
   course.push(student);
   return course;
 }

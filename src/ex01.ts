@@ -6,7 +6,7 @@
 // - Return type: string for string inputs, number for number inputs.
 
 
-function transformInput(x: string | number) {
+function transformInput(x: string | number): string | number {
   if (typeof x === "string") {
     return x.split('').reverse().join('')
   } else {

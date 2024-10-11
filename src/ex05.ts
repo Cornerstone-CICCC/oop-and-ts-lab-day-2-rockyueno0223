@@ -8,7 +8,10 @@ interface User {
   active: boolean;
 }
 
-function generateSummary(users: User[]) {
+function generateSummary(users: User[]): {
+  activeCount: number,
+  averageAge: number
+} {
   let outputObj = {
     activeCount: 0,
     averageAge: 0

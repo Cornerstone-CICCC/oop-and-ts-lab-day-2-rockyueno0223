@@ -2,19 +2,19 @@
 // - If it's an array of numbers, return the sum. If it's an array of strings, return them concatenated.
 // - Implement function overloading with appropriate return types: `number` for numbers, `string` for strings.
 
-function addValues<T extends number | string>(values: T[]) {
+function addValues<T extends number | string>(values: T[]): T {
   if (typeof values[0] === "number") {
     let sum = 0
     values.forEach(value => {
       sum += value as number
     })
-    return sum
+    return sum as T
   } else {
     let concat = ""
     values.forEach(value => {
       concat += value as string
     })
-    return concat
+    return concat as T
   }
 }
 

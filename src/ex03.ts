@@ -2,8 +2,14 @@
 // - Use function overloading and type guards to log different formats based on the input types.
 // - Return type: void.
 
-function logDetails(data) {
-  
+type Input = string | number;
+
+function logDetails(data: Input[]): void {
+  if (typeof data[0] === "string" && typeof data[1] === "number") {
+    console.log(`Name: ${data[0]}, Age: ${data[1]}`);
+  }else if (typeof data[0] === "number" && typeof data[1] === "string") {
+    console.log(`ID: ${data[0]}, Name: ${data[1]}`);
+  }
 }
 
 // Expected output:
